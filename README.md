@@ -1,9 +1,12 @@
 # 🍀Mosslight
 
-**Mosslight** — коротка атмосферна 2D гра у жанрі side-scroller adventure.
+[![](https://img.shields.io/badge/readme%20UA%20-green)](Docs/README-UA.md)
 
-Гравець керує духом лісу, який мандрує моховими хащами, зцілюючи природу й повертаючи їй життя.
-Збираючи світлові насіння, дух поступово оживляє ліс, доки не відродиться Велике Світлове Дерево — символ життя й гармонії.
+**Mosslight** is a short, atmospheric 2D side-scroller adventure game.
 
-<img src="/Docs/MainCharacter.png" width="25%" height="25%">
-Головний персонаж — дух лісу з гри Mosslight
+The player controls a forest spirit who travels through mossy woods, healing nature and restoring life to the forest.
+By collecting light seeds, the spirit gradually revives the land until the Great Light Tree — a symbol of life and harmony — is reborn.
+
+<img src="Docs/MainCharacter.png" width="25%" height="25%">
+
+Main character — the forest spirit from Mosslight
