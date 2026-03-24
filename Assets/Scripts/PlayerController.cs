@@ -1,10 +1,6 @@
 using System;
-using Unity.VisualScripting;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,15 +10,17 @@ public class PlayerController : MonoBehaviour
     public InputAction MoveAction;
     public InputAction JumpAction;
 
-    public float speed = 5f;
+    public float MoveSpeed = 5f;
+    public float JumpForce = 5f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
+
         MoveAction.Enable();
         JumpAction.Enable();
-        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -33,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
         if (jump && isGrounded)
         {
-            rb2d.AddForce(new Vector2(0, 10), ForceMode2D.Impulse);
+            rb2d.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
         }
     }
 
@@ -42,16 +40,10 @@ public class PlayerController : MonoBehaviour
         Vector2 move = MoveAction.ReadValue<Vector2>();
 
         Vector2 velocity = rb2d.linearVelocity;
-        velocity.x = move.x * speed;
-        rb2d.linearVelocity = velocity;
-
+        rb2d.linearVelocity = new Vector2(move.x * MoveSpeed, rb2d.linearVelocityY);
         if (move.x > 0)
-        {
-            sprite.flipX = false;
-        }
-        else if (move.x < 0)
-        {
             sprite.flipX = true;
-        }
+        else if (move.x < 0)
+            sprite.flipX = false;
     }
 }
